@@ -39,3 +39,11 @@ footer {
     background-color: purple;
     text-align-last: center;
 }
+
+#id2, #id3, #id4 {
+    background-color: burlywood;
+}
+
+#id5 {
+    padding-right: 13%;
+}
