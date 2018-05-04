@@ -1,15 +1,41 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
 body {
-    background-color: yellow;
     font-family: "Arial", sans-serif;
+}
+
+#menu {
+    width: 1024px;
+    height: 512px;
 }
 
 #_menu {
     list-style-type: none;
-    margin-left: 10px;
-    margin-top: 20px
-    padding: 0;
+    margin-left: 0;
+    margin-top: 0;
 }
 
 li {
-    float: left;
+    display: inline;
+    border-style: solid;
+    border-width: 2px;
+    margin: -3px;
+    padding-right: 7%;
+    padding-left: 7%;
+}
+
+header {
+    width: 1024px;
+    background-color: orange;
+}
+
+footer {
+    width: 1024px;
+    height: 32px;
+    padding-top: 16px;
+    background-color: purple;
+    text-align-last: center;
 }
