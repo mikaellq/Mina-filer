@@ -7,29 +7,100 @@ body {
     font-family: "Arial", sans-serif;
 }
 
-#menu {
+header {
     width: 1024px;
-    height: 512px;
+    height: 704px;
+    background-color: orange;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    border-style: solid;
+    border-width: 2px;
 }
 
-#_menu {
-    list-style-type: none;
-    margin-left: 0;
-    margin-top: 0;
+#menu {
+    margin-left: -2px;
+    margin-top: -2px;
 }
 
 li {
-    display: inline;
+    display: block;
+    float: left;
     border-style: solid;
     border-width: 2px;
-    margin: -3px;
-    padding-right: 7%;
-    padding-left: 7%;
 }
 
-header {
-    width: 1024px;
-    background-color: orange;
+#id1 {
+    height: 30px;
+    width: 20%;
+    text-align: center;
+    padding: 1%;
+    font-size: 20px;
+}
+
+#id2, #id3, #id4{
+    height: 30px;
+    width: 20%;
+    text-align: center;
+    padding: 1%;
+    margin-left: -2px;
+    background-color: burlywood;
+}
+
+#bbl-left {
+    margin-top: -2px;
+    margin-left: -2px;
+    height: 650px;
+    width: 70%;
+    background-color: khaki;
+}
+
+#bbl-right {
+    margin-top: -2px;
+    margin-left:-2px;
+    height: 650px;
+    width: 305px;
+    border-right: 0px;
+    background-color: aquamarine;
+}
+
+#_sidec {
+    margin: 4px;
+    padding: 30%;
+    background-color: mintcream;
+}
+
+#sub1 {
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#sub2 {
+    padding-top: 10%;
+    padding-bottom: 10%;
+    padding-left: 40%;
+    padding-right: 40%;
+}
+
+#sub3 {
+    padding-top: 25%;
+    padding-bottom: 25%;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+#sub4 {
+    padding-top: 25%;
+    padding-bottom: 25%;
+    padding-left: 19.6%;
+    padding-right: 19.6%;
+}
+
+#sub1, #sub2, #sub3, #sub4 {
+    margin: 6px;
+    background-color: mintcream;
 }
 
 footer {
@@ -38,12 +109,9 @@ footer {
     padding-top: 16px;
     background-color: purple;
     text-align-last: center;
-}
-
-#id2, #id3, #id4 {
-    background-color: burlywood;
-}
-
-#id5 {
-    padding-right: 13%;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    border-width: 2px;
+    margin-top: -2px;
 }
