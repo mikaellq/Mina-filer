@@ -39,6 +39,22 @@
             padding-right: 8px;
             margin-right: 4px;
         }
+
+        @media only screen and (max-width: 575px) {
+            .hidemenu {
+                display: none;
+            }
+        }
+
+        @media only screen and (min-width: 576px) {
+            .hidedrop {
+                display: none;
+            }
+        }
+
+        .hidedrop ul li a:hover {
+            background-color: lightgray;
+        }
     </style>
 
 </head>
@@ -46,7 +62,7 @@
 <body>
 
     <!--Menu-->
-    <div class="container">
+    <div class="container hidemenu">
         <nav class="row text-center">
             <a class="col-sm-2" href="#articles" alt="Goes to Articles">
                 <div style="background-color: honeydew;">Articles</div>
@@ -58,6 +74,19 @@
                 <div style="background-color: lavender;">Form</div>
             </a>
         </nav>
+    </div>
+
+    <!--dropdown menu-->
+    <div class="container hidedrop">
+        <div class="dropdown pull-right">
+            <button class="btn btn-lg btn-success !important dropdown-toggle" type="button" data-toggle="dropdown">
+            <span class="fa fa-align-justify"></span> <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li><a href="#articles">&nbsp;Articles</a></li>
+                <li><a href="#carousel">&nbsp;Carousel</a></li>
+                <li><a href="#form">&nbsp;Form</a></li>
+            </ul>
+        </div>
     </div>
 
     <!--Title area-->
@@ -85,9 +114,9 @@
             <!--Two articles-->
             <a id="articles"></a>
             <article class="id1 border col-sm">
-                Mord och dråp i Stockholm år 1400 till år 2000. Antal mord per 100 000 invånare. Mord och avrättningar i Stockholm finns tidigast dokumenterade från 1280-talet, då Magnus Ladulås lät halshugga tre riksråd ur Folkungaätten. De hade anklagats för flera ”förrädiska stämplingar mot tronen”. Därefter ger Stockholms stads tänkeböcker en bra inblick i stadens mord och dråp för perioden mellan 1400-talets mitt och 1600-talets mitt. Räknat per 100 000 invånare var våld med dödlig utgång bland stockholmare högst under medeltiden, för att sedan mer än halveras fram till sekelskiftet 1700. Det vanligaste var bråk som uppstod mellan två män och oftast var alkohol inblandad. </article>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. In et est cumque consectetur enim necessitatibus impedit sint porro quibusdam voluptas quia rem eum officiis similique accusantium atque hic dignissimos sit perspiciatis dicta neque dolore, qui. Nulla dicta debitis, dolores sit voluptatum, voluptates excepturi quidem et, facilis magni deleniti molestiae nobis!</article>
             <article class="id2 border col-sm">
-                Under Gustav III mildrades dödsstraffen och avskaffades helt för vissa brott. Den sista offentliga avrättningen på avrättningsplatsen skedde 1862. Sveriges och Stockholms sista avrättning ägde rum den 23 november 1910, då rånmördaren Alfred Ander halshöggs med en giljotin. Stockholm har upplevt en lång rad politiska mord, där det största är Stockholms blodbad som ägde rum mellan den 7 november och 9 november 1520. Två uppmärksammade mord på politiker överskuggar allt annat under senare delen av 1900-talet och 2000-talets början: mordet på Olof Palme (1986) och mordet på Anna Lindh (2003). Därtill kommer tre terroristdåd med dödligt utgång: Ockupationen av Västtysklands ambassad (1975), bombdåden i Stockholm (2010) samt attacken på Drottninggatan (2017). </article>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, culpa, accusamus cum assumenda nemo est ut rem mollitia, enim maiores, iusto maxime adipisci officiis! Aperiam amet perspiciatis numquam ipsum odit magnam deleniti sint, asperiores consectetur id ab, repellat vitae, repellendus porro ad expedita tenetur doloribus voluptate voluptatibus. Obcaecati a mollitia molestiae dolore sed voluptates alias, non omnis perferendis facere et eligendi eaque, quo exercitationem assumenda dolores commodi deserunt nesciunt necessitatibus.</article>
         </div>
         <br>
 
