@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 
 <head>
     <title>Mikael's Bootstrap Page!</title>
@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style type="text/css">
         form {
@@ -17,6 +18,26 @@
 
         input {
             width: 100px;
+        }
+
+        body {
+            background-color: beige;
+        }
+
+        .id1,
+        .id2 {
+            background-color: aliceblue;
+        }
+
+        .jumbotron {
+            background-color: chocolate;
+        }
+
+        .sidemenu {
+            padding: 4px;
+            padding-left: 8px;
+            padding-right: 8px;
+            margin-right: 4px;
         }
     </style>
 
@@ -27,14 +48,14 @@
     <!--Menu-->
     <div class="container">
         <nav class="row text-center">
-            <a class="col-sm-2" href="#" alt="Goes to page 1">
-                <div style="background-color: honeydew;">Menu 1</div>
+            <a class="col-sm-2" href="#articles" alt="Goes to Articles">
+                <div style="background-color: honeydew;">Articles</div>
             </a>
-            <a class="col-sm-2" href="#" alt="Goes to page 2">
-                <div style="background-color: gainsboro;">Menu 2</div>
+            <a class="col-sm-2" href="#carousel" alt="Goes to Carousel">
+                <div style="background-color: gainsboro;">Carousel</div>
             </a>
-            <a class="col-sm-2" href="#" alt="Goes to page 3">
-                <div style="background-color: lavender;">Menu 3</div>
+            <a class="col-sm-2" href="#form" alt="Goes to Form">
+                <div style="background-color: lavender;">Form</div>
             </a>
         </nav>
     </div>
@@ -49,89 +70,98 @@
         </div>
     </div>
 
-    <!--Bulleted menu + articles-->
+    <!--Bulleted menu + articles + carousel-->
     <div class="container">
         <div class="row">
-            <nav class="col-sm-3">
+            <nav class="col-xs-3">
                 <ul>
-                    <li><a href="#" target="_blank">Menu 1</a></li>
-                    <li><a href="#" target="_blank">Menu 2</a></li>
-                    <li><a href="#" target="_blank">Menu 3</a></li>
-                    <li><a href="#" target="_blank">Menu 4</a></li>
+                    <li><a class="sidemenu" href="#" target="_blank" style="background-color: cadetblue">Menu 1</a></li>
+                    <li><a class="sidemenu" href="#" target="_blank" style="background-color: coral">Menu 2</a></li>
+                    <li><a class="sidemenu" href="#" target="_blank" style="background-color: cornflowerblue">Menu 3</a></li>
+                    <li><a class="sidemenu" href="#" target="_blank" style="background-color: darkkhaki">Menu 4</a></li>
                 </ul>
             </nav>
+
             <!--Two articles-->
-            <article class="border col">
+            <a id="articles"></a>
+            <article class="id1 border col-sm">
                 Mord och dråp i Stockholm år 1400 till år 2000. Antal mord per 100 000 invånare. Mord och avrättningar i Stockholm finns tidigast dokumenterade från 1280-talet, då Magnus Ladulås lät halshugga tre riksråd ur Folkungaätten. De hade anklagats för flera ”förrädiska stämplingar mot tronen”. Därefter ger Stockholms stads tänkeböcker en bra inblick i stadens mord och dråp för perioden mellan 1400-talets mitt och 1600-talets mitt. Räknat per 100 000 invånare var våld med dödlig utgång bland stockholmare högst under medeltiden, för att sedan mer än halveras fram till sekelskiftet 1700. Det vanligaste var bråk som uppstod mellan två män och oftast var alkohol inblandad. </article>
-            <article class="border col">
+            <article class="id2 border col-sm">
                 Under Gustav III mildrades dödsstraffen och avskaffades helt för vissa brott. Den sista offentliga avrättningen på avrättningsplatsen skedde 1862. Sveriges och Stockholms sista avrättning ägde rum den 23 november 1910, då rånmördaren Alfred Ander halshöggs med en giljotin. Stockholm har upplevt en lång rad politiska mord, där det största är Stockholms blodbad som ägde rum mellan den 7 november och 9 november 1520. Två uppmärksammade mord på politiker överskuggar allt annat under senare delen av 1900-talet och 2000-talets början: mordet på Olof Palme (1986) och mordet på Anna Lindh (2003). Därtill kommer tre terroristdåd med dödligt utgång: Ockupationen av Västtysklands ambassad (1975), bombdåden i Stockholm (2010) samt attacken på Drottninggatan (2017). </article>
-            <!--Carousel-->
-            <div id="carouselExampleControls" class="carousel slide text-info" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="Bora_Bora.jpg" alt="First slide">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Mail me here:</h5>
-                            <p>mickelq@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="Island.jpg" alt="Second slide">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Mail me here:</h5>
-                            <p>mickelq@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="Malaysia.jpg" alt="Third slide">
-                    </div>
+        </div>
+        <br>
+
+        <!--Carousel-->
+        <a id="carousel"></a>
+        <div id="carouselExampleControls" class="carousel slide text-info" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100 img-thumbnail" src="Bora_Bora.jpg" alt="First slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Mail me here:</h5>
                         <p>mickelq@gmail.com</p>
                     </div>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <div class="carousel-item">
+                    <img class="d-block w-100 img-thumbnail" src="Island.jpg" alt="Second slide">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Mail me here:</h5>
+                        <p>mickelq@gmail.com</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100 img-thumbnail" src="Malaysia.jpg" alt="Third slide">
+                </div>
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Mail me here:</h5>
+                    <p>mickelq@gmail.com</p>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             </a>
-                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
-            </div>
-
         </div>
+
     </div>
+    <br>
 
     <!--Form-->
-    <p>
-        <div class="container">
-           <div class="row">
-            <form class="col-sm-6" action="#" method="get">
-                Name: <input type="text" name="name"><br> Email: <input type="text" name="email"><br> Phone: <input type="text" name="phone"><br> Message: <input type="text" name="message"><br>
-                <input type="submit" value="Submit">
+    <a id="form"></a>
+    <div class="container">
+        <div class="row">
+            <form class="col-xs-6" action="#" method="get">
+                Name: <input type="text" name="name"><br> Email: <input type="text" name="email"><br> Phone: <input type="text" name="phone"><br> &nbsp;&nbsp;Message: <input type="text" name="message"><br>
+                <input class="btn-danger" type="reset" value="Reset!">
+                <input class="btn-success" type="submit" value="Submit">
             </form>
             <div class="col-sm-6"></div>
-            </div>
-        </div>
-    </p>
-
-    <!--Test-->
-    <div>
-        <p>Resize the browser window to see the effect.</p>
-        <p>The columns will automatically stack on top of each other when the screen is less than 576px wide.</p>
-        <div class="row">
-            <div class="col-lg-3 " style="background-color:lavender;">.col-lg-3</div>
-            <div class="col-lg-3" style="background-color:lavenderblush;">.col-lg-3</div>
-            <div class="col-lg-3" style="background-color:lavender;">.col-lg-3</div>
-            <div class="col-lg-3" style="background-color:lavenderblush;"><mark>.col-lg-3</mark></div>
         </div>
     </div>
+    <br>
+
+    <!--Footer-->
+    <footer class="container">
+        <div class="row text-center">
+            <div class="col-md-6" style="background-color: chocolate; font-size:24px">
+                <span class="fa fa-copyright">&nbsp;2018 Mikael Lundqvist</span></div>
+            <div class="col-md-6" style="background-color:lavender; font-size:24px">
+                <span class="fa fa-angle-double-up">
+                    &nbsp;<a href="#top">Tillbaks till början av sidan</a>
+                    </span>
+            </div>
+        </div>
+        <br>
+    </footer>
 
 </body>
 
