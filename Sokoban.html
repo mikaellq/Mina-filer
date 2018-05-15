@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <title>Mikael's Bootstrap Page!</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        canvas {
+            border:1px solid #d3d3d3;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+
+<body id="game" scroll="no" style="overflow: hidden" onload="startGame()">
+    <script>
+        var myGamePiece;
+        var posX = 90, posY = 90;
+        const width = 30, height = 30;
+        const cwidth = 480, cheight = 480;
+        var a = [[10,16],[10,15],[10,14],[10,13],[10,12]];
+
+        document.getElementById("game").addEventListener("keydown", myFunction);
+           
+        function myFunction() {
+            //document.getElementById("demo").style.backgroundColor = "red";
+            //left: 37, right: 39, up: 38, down: 40
+
+            var key = event.keyCode;
+            //alert("You pressed "+key);
+
+            switch(key) {
+                case 37:
+                    moveMyPiece(-width, 0);
+                    //alert("You pressed 37");
+                    break;
+                case 39:
+                    moveMyPiece(width, 0);
+                    //alert("You pressed 39");
+                    break;
+                case 38:
+                    moveMyPiece(0, -height);
+                    //alert("You pressed 38");
+                    break;
+                case 40:
+                    moveMyPiece(0, height);
+                    //alert("You pressed 40");
+                    break;
+                default:
+                    //alert("Use the arrow keys dummy!");
+            }
+        }
+        
+        function startGame() {
+            myGameArea.start();
+            myGamePiece = new component(width, height, "green", posX, posY);
+            var t = writeArea();
+        }
+
+        var myGameArea = {
+            canvas : document.createElement("canvas"),
+            start : function() {
+                this.canvas.width = cwidth;
+                this.canvas.height = cheight;
+                this.context = this.canvas.getContext("2d");
+                document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+            }
+        }
+
+        function component(w, h, color, x, y) {
+            this.width = w;
+            this.height = h;
+            this.x = x;
+            this.y = y;    
+            ctx = myGameArea.context;
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+
+        function moveMyPiece(x, y) {
+            myGamePiece = new component(width, height, "#f1f1f1", posX, posY);
+            var test = findElement(a, x/width, y/height);
+            if (posX+x >= 0 && posX+x < cwidth && test < 0) {
+                posX += x;
+            }
+
+            if (posY+y >= 0 && posY+y < cheight && test < 0) {
+                posY += y;
+            }
+
+            myGamePiece = new component(width, height, "green", posX, posY);
+        }
+
+        function findElement(e, x, y) {
+            for(i=0; i<e.length; i++) {
+                if (e[i][0] == x) {
+                    if (e[i][1] == y) {
+                        return i;
+                    }
+                }
+            }
+            return -1;
+        }
+
+        function writeArea() {
+            //alert("TEST!");
+            for(i=0;i<a.length;i++) {
+                var t = new component(30, 30, "red", a[i][0]*width, a[i][1]*height);
+            }
+            return 1;
+        }
+    </script>
+</body>
+</html>
