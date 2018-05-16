@@ -11,12 +11,13 @@
             border: 1px solid #d3d3d3;
             background-color: #f1f1f1;
         }
+
     </style>
 </head>
 
 <body id="game" scroll="no" style="overflow: hidden" onload="startGame()">
     <script>
-        var myGamePiece;
+        var myGamePiece, playField;
         var posX = 3,
             posY = 5;
         const width = 30,
@@ -58,32 +59,24 @@
             [4, 4],
             [8, 10]
         ];
-        
-        document.getElementById("game").addEventListener("keydown", myFunction);
 
-        function myFunction() {
-            //document.getElementById("demo").style.backgroundColor = "red";
-            //left: 37, right: 39, up: 38, down: 40
+        document.getElementById("game").addEventListener("keydown", getKey);
 
+        function getKey() {
             var key = event.keyCode;
-            //alert("You pressed "+key);
 
             switch (key) {
                 case 37:
                     moveMyPiece(-1, 0);
-                    //alert("You pressed 37");
                     break;
                 case 39:
                     moveMyPiece(1, 0);
-                    //alert("You pressed 39");
                     break;
                 case 38:
                     moveMyPiece(0, -1);
-                    //alert("You pressed 38");
                     break;
                 case 40:
                     moveMyPiece(0, 1);
-                    //alert("You pressed 40");
                     break;
                 default:
                     //alert("Use the arrow keys dummy!");
@@ -117,17 +110,37 @@
         }
 
         function moveMyPiece(x, y) {
-            myGamePiece = new component(width, height, "#f1f1f1", posX * width, posY * height);
-            var test = findElement(a, posX + x, posY + y);
-            if (posX + x >= 0 && posX + x < cwidth && test < 0) {
-                posX += x;
+            var obstacle = findElement(a, posX + x, posY + y);
+            if (obstacle < 0 && isInArea(posX, posY, x, y)) {
+                var block = findElement(stones, posX + x, posY + y);
+                if (block < 0) {
+                    myGamePiece = new component(width, height, "#f1f1f1", posX * width, posY * height);
+                    posX += x;
+                    posY += y;
+                    myGamePiece = new component(width, height, "green", posX * width, posY * height);
+                }
+                else {
+                    var bx = stones[block][0];
+                    var by = stones[block][1];
+                    var obstacle2 = findElement(a, bx + x, by + y);                    
+                    if (obstacle2 < 0 && isInArea(bx, by, x, y)) {
+                        var block2 = findElement(stones, bx + x, by + y);
+                        if (block2 < 0) {
+                            bx += x;
+                            by += y;
+                            stones[block][0] = bx;
+                            stones[block][1] = by;
+                            myGamePiece = new component(width, height, "blue", bx * width, by * height);
+                            
+                            myGamePiece = new component(width, height, "#f1f1f1", posX * width, posY * height);
+                            posX += x;
+                            posY += y;
+                            myGamePiece = new component(width, height, "green", posX * width, posY * height);
+                        }
+                        
+                    }
+                }
             }
-
-            if (posY + y >= 0 && posY + y < cheight && test < 0) {
-                posY += y;
-            }
-
-            myGamePiece = new component(width, height, "green", posX * width, posY * height);
         }
 
         function findElement(e, x, y) {
@@ -144,14 +157,21 @@
         function writeArea() {
             //alert("TEST!");
             for (i = 0; i < a.length; i++) {
-                var t = new component(30, 30, "red", a[i][0] * width, a[i][1] * height);
+                playField = new component(30, 30, "red", a[i][0] * width, a[i][1] * height);
             }
 
             for (i = 0; i < stones.length; i++) {
-                var t = new component(30, 30, "blue", stones[i][0] * width, stones[i][1] * height);
+                playField = new component(30, 30, "blue", stones[i][0] * width, stones[i][1] * height);
             }
 
             return 1;
+        }
+
+        function isInArea(px, py, x, y) {
+            if (px + x >= 0 && px + x < cwidth && py + y >= 0 && py + y < cheight)
+                return true;
+
+            return false;
         }
     </script>
 </body>
