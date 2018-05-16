@@ -57,9 +57,12 @@
             [2, 2],
             [3, 3],
             [4, 4],
-            [8, 10]
+            [8, 10],
+            [13, 1]
         ];
 
+        var goal = [[11,15],[12,15],[13,15],[14,15],[15,15]];
+        
         document.getElementById("game").addEventListener("keydown", getKey);
 
         function getKey() {
@@ -110,11 +113,14 @@
         }
 
         function moveMyPiece(x, y) {
+            var c = "#f1f1f1";
+            var t = findElement(goal, posX, posY);
+            if (t >= 0) c = "yellow";
             var obstacle = findElement(a, posX + x, posY + y);
             if (obstacle < 0 && isInArea(posX, posY, x, y)) {
                 var block = findElement(stones, posX + x, posY + y);
                 if (block < 0) {
-                    myGamePiece = new component(width, height, "#f1f1f1", posX * width, posY * height);
+                    myGamePiece = new component(width, height, c, posX * width, posY * height);
                     posX += x;
                     posY += y;
                     myGamePiece = new component(width, height, "green", posX * width, posY * height);
@@ -132,7 +138,7 @@
                             stones[block][1] = by;
                             myGamePiece = new component(width, height, "blue", bx * width, by * height);
                             
-                            myGamePiece = new component(width, height, "#f1f1f1", posX * width, posY * height);
+                            myGamePiece = new component(width, height, c, posX * width, posY * height);
                             posX += x;
                             posY += y;
                             myGamePiece = new component(width, height, "green", posX * width, posY * height);
@@ -141,10 +147,34 @@
                     }
                 }
             }
+            var count = 0;
+            var t;
+            for (j = 0; j < stones.length; j += 1) {
+                t = findElement(goal, stones[j][0], stones[j][1]);
+                if (t >=0) {
+                    count += 1;
+                }
+                //alert("j: "+j+" t: "+t+" count: "+count);
+            }
+
+            //if (count >= stones.length) {
+            //    alert("Stones length: "+stones.length+" Count = "+count);
+            //}
+
+            if (count >= stones.length) {
+                var para = document.createElement("h1");
+                var node = document.createTextNode("SUCCESS!!! Reload to start a new game.");
+                para.appendChild(node);
+
+                var element = document.getElementById("game");
+                element.appendChild(para);
+                //document.getElementById("game").innerHTML = "[h1]SUCCESS!!! Reload to start a new game.[/h1]";
+            }
+
         }
 
         function findElement(e, x, y) {
-            for (i = 0; i < e.length; i++) {
+            for (i = 0; i < e.length; i += 1) {
                 if (e[i][0] == x) {
                     if (e[i][1] == y) {
                         return i;
@@ -162,6 +192,10 @@
 
             for (i = 0; i < stones.length; i++) {
                 playField = new component(30, 30, "blue", stones[i][0] * width, stones[i][1] * height);
+            }
+
+            for (i = 0; i < goal.length; i++) {
+                playField = new component(30, 30, "yellow", goal[i][0] * width, goal[i][1] * height);
             }
 
             return 1;
